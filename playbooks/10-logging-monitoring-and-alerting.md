@@ -25,6 +25,14 @@ Provide sufficient visibility to detect misuse, investigate incidents and mainta
 - For access and authorisation logging, use consistent fields capturing who (actor), what (action or event type) and when (timestamp), with additional contextual fields as appropriate.
 - Ensure that admin actions are attributable to a named identity (no shared accounts).
 
+### Attribute actions taken by non-human actors
+
+- Where an automated component takes actions in the product on its own determination, including an AI component that invokes tools, writes to storage or executes code, record which component acted and under whose authority, in addition to the credential used.
+- Do not rely on a service account alone for attribution. A shared service credential identifies the channel and not the actor, and several components behind one credential produce records that cannot be told apart afterwards.
+- Record, for each such action: the component and its version, the credential used, the human or system authority the action was taken under, the action, the outcome and the time.
+- Keep the record of what an automated component did outside the write path of that component. A component that can modify its own record produces evidence about itself that nobody outside can rely on.
+- Where a record of automated actions may be read by a party outside the organisation, for example a customer, an integrator or an auditor, make its integrity and origin checkable without asking the organisation that produced it. Signed structured records over a canonical serialisation are one existing means.
+
 ### Centralise collection and protect log integrity
 
 - Central log store (SIEM/log platform or managed logging).
@@ -51,6 +59,7 @@ Provide sufficient visibility to detect misuse, investigate incidents and mainta
 - Retention setting: configured retention is in place and there is an access-control policy for logs
 - Alert catalogue: list of enabled alerts with thresholds and owners (initial set can consist of around 5 to 10 alerts)
 - Triage runbook: one-page steps and escalation contacts, plus one recent test (tabletop note)
+- Automated-actor inventory: list of components that take actions in the product without a person in the loop, the credential each uses and the record each produces (one page)
 
 ## Release gate
 
@@ -59,4 +68,5 @@ Provide sufficient visibility to detect misuse, investigate incidents and mainta
 - [ ] Log access restricted, retention configured, time sync verified
 - [ ] High-signal alerts enabled and assigned an owner (at least brute force events, new admin / role change, key/secret change, update failures)
 - [ ] Triage runbook exists and has been tested recently (tabletop exercise or test alert)
+- [ ] Actions taken by automated components are attributable to the component and not only to a shared credential, and their records are outside those components' write path
 - [ ] Logging/alerting exceptions are documented, with owner and review/expiry date
