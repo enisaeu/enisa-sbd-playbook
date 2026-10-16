@@ -11,7 +11,7 @@
 
 ## Operational Integrity
 
-- [7 Lifecycle management](playbooks/07-lifecycle-management.md)
+- [7 Lifecycle management](playbooks/07-life-cycle-management.md)
 - [8 User centric design](playbooks/08-user-centric-design.md)
 - [9 Secure coding and verification practices](playbooks/09-secure-coding-and-verification-practices.md)
 - [10 Logging, monitoring, and alerting](playbooks/10-logging-monitoring-and-alerting.md)
@@ -34,4 +34,4 @@
 - [19 Mandatory Security Onboarding](playbooks/19-mandatory-security-onboarding.md)
 - [20 Automated Maintenance and Updates](playbooks/20-automated-maintenance-and-updates.md)
 - [21 Transparent Security Posture](playbooks/21-transparent-security-posture.md)
-- [22 Secure Recovery and Ownership Lifecycle](playbooks/22-secure-recovery-and-ownership-lifecycle.md)
+- [22 Secure Recovery and Ownership Lifecycle](playbooks/22-secure-recovery-and-ownership-life-cycle.md)
